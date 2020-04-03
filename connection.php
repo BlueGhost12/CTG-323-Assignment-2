@@ -8,17 +8,18 @@
 		}
 
 		// Add a contact
-		public function addContact($name, $number, $address)
+		public function addContact($name, $number, $address, $id)
 		{
 			$name = addslashes($name);
 			$number = addslashes($number);
 			$address = addslashes($address);
-			$statement = $this->conn->prepare("INSERT INTO contacts (name, mobile_number, address) VALUES (:name, :mobile_number, :address)");
+			$statement = $this->conn->prepare("INSERT INTO contacts (name, mobile_number, address, user_id) VALUES (:name, :mobile_number, :address, :id)");
 			$statement->execute(
 				array(
 					':name' => $name,
 					':mobile_number' => $number,
-					':address' => $address
+					':address' => $address,
+					':id' => $id
 				)
 			);
 		}
@@ -54,6 +55,20 @@
 		{
 			$statement = $this->conn->prepare("DELETE FROM contacts WHERE id=$id");
 			$statement->execute();
-		}		
+		}
+
+		public function addUser($query)
+		{
+			$statement = $this->conn->prepare($query);
+			$statement->execute();
+		}
+
+		public function getInfo($query)
+		{
+			$statement = $this->conn->prepare($query);
+			$statement->execute();
+			$data = $statement->fetchAll();
+			return $data;
+		}
 	}
 ?>

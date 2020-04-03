@@ -1,0 +1,32 @@
+body{
+	font-family: 'Baloo Thambi 2', cursive;
+}
+
+.height_description{
+	min-height: 82vh;
+}
+
+.height{
+	min-height: 70vh;
+}
+
+.pic{
+	background-image: url('../img/snow.jpg');
+	background-size: 100% 100%;
+	/*background-size: contain;*/
+	/*background-repeat: no-repeat;*/
+}
+
+.viewPic{
+	background-image: url('../img/mntn.jpg');
+	background-size: 100% 100%;
+	/*background-size: contain;*/
+	/*background-repeat: no-repeat;*/
+
+}
+
+.henlo{
+	background-image: url('../img/forest.jpg');
+	background-size: 100% 100%;
+}
+
